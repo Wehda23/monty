@@ -1,6 +1,7 @@
 #include "monty.h"
+#define _GNU_SOURCE
 #include <stdio.h>
-
+#include <stdlib.h>
 
 /**
  * main - Entry function
@@ -8,35 +9,25 @@
  * @argv: Argument list
  * Return: int 
  */
-int main(int argc, char *argv[])
+int main(void)
 {
-    FILE *file; 
-    ssize_t readline = 1;
-    size_t size = 0;
-    char *cmd;
-    
-    if (argc != 2)
-    {
-        fprintf(stderr, "Usage: monty file\n");
+    FILE * fp;
+    char * line = NULL;
+    size_t len = 0;
+    ssize_t read;
+
+    fp = fopen("/etc/motd", "r");
+    if (fp == NULL)
         exit(EXIT_FAILURE);
+
+    while ((read = getline(&line, &len, fp)) != -1) {
+        printf("%s", line);
     }
 
-    file = fopen(argv[1], "r");
-    if (!file)
-    {
-        fprintf(stderr, "Error: Can't open file %s", argv[1]);
-        exit(EXIT_FAILURE);
-    }
-    while (readline > 0)
-    {
-        cmd = NULL;
-        readline = getline(&cmd, &size, file);
-        if (readline > 0)
-        {
-            printf("%s", cmd);
-        }
-        free(cmd);
-    }
-    fclose(file);
+    fclose(fp);
+    if (line)
+        free(line);
+    exit(EXIT_SUCCESS);
+    
     return (0);
 }
