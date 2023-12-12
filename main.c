@@ -1,10 +1,12 @@
 #include "monty.h"
+#include <stdio.h>
+
 
 
 int main(int argc, char *argv[])
 {
-    File *file;
-
+    FILE *file; 
+    
     if (argc != 2)
     {
         fprintf(stderr, "Usage: monty file\n");
