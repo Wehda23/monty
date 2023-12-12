@@ -30,7 +30,7 @@ int main(int argc, char *argv[])
     while (fgets(buffer, BUFSIZE, file))
     {
         buffer[strcspn(buffer, "\n")] = 0;
-        printf("%s\n", buffer);
+        command(buffer);
     }
 
     fclose(file);
