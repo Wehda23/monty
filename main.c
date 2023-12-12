@@ -2,7 +2,12 @@
 #include <stdio.h>
 
 
-
+/**
+ * main - Entry function
+ * @argc: Is the number of arguments passed in into the file
+ * @argv: Argument list
+ * Return: int 
+ */
 int main(int argc, char *argv[])
 {
     FILE *file; 
