@@ -11,6 +11,9 @@
 int main(int argc, char *argv[])
 {
     FILE *file; 
+    ssize_t readline = 1;
+    size_t size = 0;
+    char *cmd;
     
     if (argc != 2)
     {
@@ -24,7 +27,16 @@ int main(int argc, char *argv[])
         fprintf(stderr, "Error: Can't open file %s", argv[1]);
         exit(EXIT_FAILURE);
     }
-    printf("Eksh");
+    while (readline > 0)
+    {
+        cmd = NULL;
+        readline = getline(&cmd, &size, file);
+        if (readline > 0)
+        {
+            printf("%s", cmd);
+        }
+        free(cmd);
+    }
     fclose(file);
     return (0);
 }
