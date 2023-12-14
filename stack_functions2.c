@@ -15,7 +15,7 @@ void swap(stack_t **stack, unsigned int line_number)
 
     if ((*stack) == NULL || (*stack)->next == NULL)
     {
-        fprintf(stderr, "L%d: can't swap, stack too short", line_number);
+        fprintf(stderr, "L%d: can't swap, stack too short\n", line_number);
         exit(EXIT_FAILURE);
     }
     first->next = second->next;
@@ -27,4 +27,26 @@ void swap(stack_t **stack, unsigned int line_number)
     second->prev = NULL;
     second->next = first;
     *stack = second;
+}
+
+
+/**
+ * add -  adds the top two elements of the stack.
+ * @stack: Pointer to a stack
+ * @line_number: line number.
+ */
+void add(stack_t **stack, unsigned int line_number)
+{
+    stack_t *current = *stack;
+
+    if ((*stack) == NULL || (*stack)->next == NULL)
+    {
+        fprintf(stderr, "L%d: can't add, stack too short\n", line_number);
+        exit(EXIT_FAILURE);
+    }
+
+    (*stack)->next->n += (*stack)->n;
+    (*stack) = (*stack)->next;
+    (*stack)->prev = NULL;
+    free(current);
 }
