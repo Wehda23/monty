@@ -44,7 +44,7 @@ void pall(stack_t *stack)
     /* Print all stack elements */
     while (stack != NULL)
     {
-        printf("%d\n", stack->n);
+        fprintf(stdout, "%d\n", stack->n);
         stack = stack->next;
     }
 }
