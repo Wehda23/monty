@@ -65,3 +65,4 @@ void free_stack(stack_t *stack)
 		current = next_node;
 	}
 }
+

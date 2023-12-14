@@ -22,8 +22,9 @@ int command(char *buffer, stack_t **stack, unsigned int line_number)
 		action = strtok(buffer, " \n\t");
 		argument = strtok(NULL, " \n\t");
 
-		if (action == NULL)
-			exit(EXIT_FAILURE);
+		if (action && action[0] == '#')
+			return (0);
+			
 		for (position = 0; actions[position].opcode != NULL; position++)
 		{
 			if (strcmp(actions[position].opcode, action) == 0)
