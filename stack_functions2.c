@@ -80,7 +80,7 @@ void sub(stack_t **stack, unsigned int line_number)
 }
 
 /**
- * div - divides the second top element of the stack by the top element of the stack.
+ * div_stack - divides the second top element of the stack by the top element of the stack.
  * @stack: Pointer to a stack
  * @line_number: line number.
  */
@@ -104,5 +104,4 @@ void div_stack(stack_t **stack, unsigned int line_number)
     (*stack) = (*stack)->next;
     (*stack)->prev = NULL;
     free(current);
-
 }

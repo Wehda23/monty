@@ -9,6 +9,8 @@ static instruction_t actions[] = {
 		{"nop", nop},
 		{"sub", sub},
 		{"div", div_stack},
+		{"mul", mul_stack},
+		{"mod", mod_stack},
 		{NULL, NULL},
 };
 
