@@ -20,7 +20,7 @@ int command(char *buffer, stack_t **stack, unsigned int line_number)
 	int length = strlen(buffer), position = 0; /* Get the length of string */
 	char *action, *argument;
 	unsigned int value;
-	
+
 	if (length != 0) /* practically ignore lines with 0 length */
 	{
 		action = strtok(buffer, " \n\t");
