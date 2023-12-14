@@ -1,6 +1,6 @@
 #include "monty.h"
 
-instruction_t actions[] = {
+static instruction_t actions[] = {
 		{"push", push},
 		{"pint", pint},
 		{"pop", pop},
