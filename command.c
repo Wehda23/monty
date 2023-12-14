@@ -4,6 +4,7 @@
  * command - function that is used to detect, build and execute commands.
  * @buffer: String may contain one or more commands.
  * @stack: Doubly linked list.
+ * @line_number: line number.
  * Return: integer, 1 in case of success, 0 incase of failure.
  */
 int command(char *buffer, stack_t **stack, unsigned int line_number)
