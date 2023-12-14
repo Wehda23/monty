@@ -15,6 +15,8 @@ static instruction_t actions[] = {
 		{"pstr", pstr},
 		{"rotl", rotl},
 		{"rotr", rotr},
+		{"stack", stack_custom},
+		{"queue", queue_custom},
 		{NULL, NULL},
 };
 
