@@ -87,14 +87,6 @@ void pop(stack_t **stack, unsigned int line_number)
 		fprintf(stderr, "L%d: can't pint, stack empty\n", line_number);
 		exit(EXIT_FAILURE);
 	}
-	if (top->prev != NULL)
-	{
-		while (top->prev != NULL)
-		{
-			top = top->prev;
-		}
-	}
-	printf("problem here");
 	*stack = (*stack)->next;
 	free(top);
 }
