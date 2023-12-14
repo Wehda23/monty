@@ -62,5 +62,12 @@ void mul_stack(stack_t **stack, unsigned int line_number);
 void mod_stack(stack_t **stack, unsigned int line_number);
 void pchar(stack_t **stack, unsigned int line_number);
 void pstr(stack_t **stack, unsigned int line_number);
+void rotl(stack_t **stack, unsigned int line_number);
+
+/* stack_functions4.c */
+void rotr(stack_t **stack, unsigned int line_number);
+void stack_custom(stack_t **stack, unsigned int line_number);
+void queue_custom(stack_t **stack, unsigned int line_number);
+
 
 #endif /* waheed.h end */

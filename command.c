@@ -13,6 +13,8 @@ static instruction_t actions[] = {
 		{"mod", mod_stack},
 		{"pchar", pchar},
 		{"pstr", pstr},
+		{"rotl", rotl},
+		{"rotr", rotr},
 		{NULL, NULL},
 };
 

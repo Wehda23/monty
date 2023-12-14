@@ -101,3 +101,27 @@ void pstr(stack_t **stack, unsigned int line_number)
     }
     fprintf(stdout, "\n");
 }
+
+/**
+ * rotl - rotates the stack to the top.
+ * @stack: Pointer to a stack.
+ * @line_number: line number.
+ */
+void rotl(stack_t **stack, unsigned int line_number)
+{
+    stack_t *top = *stack;
+    stack_t *second = (*stack)->next;
+    stack_t *current = second;
+
+    (void) line_number;
+
+    while (current->next != NULL)
+    {
+        current = current->next;
+    }
+    current->next = top;
+    top->prev = current;
+    top->next = NULL;
+    (*stack) = second;
+    second->prev = NULL;
+}
