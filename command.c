@@ -30,12 +30,14 @@ int command(char *buffer, stack_t **stack, unsigned int line_number)
 		{
 			if (strcmp(actions[position].opcode, action) == 0)
 			{
-				value = (unsigned int) atoi(argument);
+				value = line_number;
 				if (value == 0 && strcmp("push", action) == 0)
 				{
 					fprintf(stderr, "L%d: usage: push integer\n", line_number);
 					exit(EXIT_FAILURE);
 				}
+				if (strcmp("push", action) == 0)
+					value = (unsigned int) atoi(argument);
 				actions[position].f(stack, value);
 				return (1);
 			}
