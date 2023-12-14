@@ -34,3 +34,21 @@ void push(stack_t **stack, unsigned int line_number)
         (*stack) = new;
     }
 }
+
+
+/**
+ * free_stack - function that frees memory allocation of a stack.
+ * @stack: doubly linked list to a stack.
+ */
+void free_stack(stack_t *stack)
+{
+    stack_t *current = stack;
+    stack_t *next_node;
+
+    while (current != NULL)
+    {
+        next_node = current->next;
+        free(current);   
+        current = next_node;
+    }
+}
