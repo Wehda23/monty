@@ -1,5 +1,12 @@
 #include "monty.h"
 
+instruction_t actions[] = {
+		{"push", push},
+		{"pint", pint},
+		{"pop", pop},
+		{NULL, NULL},
+};
+
 /**
  * command - function that is used to detect, build and execute commands.
  * @buffer: String may contain one or more commands.
@@ -13,12 +20,7 @@ int command(char *buffer, stack_t **stack, unsigned int line_number)
 	char *action, *argument;
 	int position = 0;
 	unsigned int value;
-	instruction_t actions[] = {
-		{"push", push},
-		{"pint", pint},
-		{"pop", pop},
-		{NULL, NULL},
-	};
+	
 
 	if (length != 0) /* practically ignore lines with 0 length */
 	{
