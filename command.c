@@ -14,6 +14,8 @@ int command(char *buffer, stack_t **stack, unsigned int line_number)
 	unsigned int value;
 	instruction_t actions[] = {
 		{"push", push},
+		{"pint", pint},
+		{"pop", pop},
 		{NULL, NULL},
 	};
 
@@ -21,7 +23,6 @@ int command(char *buffer, stack_t **stack, unsigned int line_number)
 	{
 		action = strtok(buffer, " \n\t");
 		argument = strtok(NULL, " \n\t");
-
 		if (action && action[0] == '#')
 			return (0);
 		for (position = 0; actions[position].opcode != NULL; position++)

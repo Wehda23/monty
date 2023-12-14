@@ -50,6 +50,55 @@ void pall(stack_t *stack)
 }
 
 /**
+ * pint - prints the value at the top of the stack, followed by a new line.
+ * @stack: Pointer to a stack
+ * @line_number: Line number.
+ */
+void pint(stack_t **stack, unsigned int line_number)
+{
+	stack_t *top = *stack;
+
+	if ((*stack) == NULL)
+	{
+		fprintf(stderr, "L%d: can't pint, stack empty\n", line_number);
+		exit(EXIT_FAILURE);
+	}
+	if (top->prev != NULL)
+	{
+		while (top->prev != NULL)
+		{
+			top = top->prev;
+		}
+	}
+	fprintf(stdout, "%u\n", top->n);
+}
+
+/**
+ * pop - removes the top element of the stack.
+ * @stack: Pointer to a stack.
+ * @line_number: Line number.
+ */
+void pop(stack_t **stack, unsigned int line_number)
+{
+	stack_t *top = *stack;
+
+	if (top == NULL)
+	{
+		fprintf(stderr, "L%d: can't pint, stack empty\n", line_number);
+		exit(EXIT_FAILURE);
+	}
+	if (top->prev != NULL)
+	{
+		while (top->prev != NULL)
+		{
+			top = top->prev;
+		}
+	}
+	printf("problem here");
+	*stack = (*stack)->next;
+	free(top);
+}
+/**
  * free_stack - function that frees memory allocation of a stack.
  * @stack: doubly linked list to a stack.
  */
