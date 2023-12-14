@@ -8,31 +8,31 @@
  */
 void push(stack_t **stack, unsigned int line_number)
 {
-    stack_t *new;
+	stack_t *new;
 
-    new = malloc(sizeof(stack_t));
+	new = malloc(sizeof(stack_t));
 
-    if (new == NULL)
-    {
-        fprintf(stderr, "Error: malloc failed\n");
-        exit(EXIT_FAILURE);
-    }
+	if (new == NULL)
+	{
+		fprintf(stderr, "Error: malloc failed\n");
+		exit(EXIT_FAILURE);
+	}
 
-    new->n = line_number;
-    new->next = NULL;
-    new->prev = NULL;
+	new->n = line_number;
+	new->next = NULL;
+	new->prev = NULL;
 
-    /* Incase it is a fresh one*/
-    if ((*stack) == NULL)
-    {
-        (*stack) = new;
-    }
-    else
-    {
-        new->next = (*stack);
-        (*stack)->prev = new;
-        (*stack) = new;
-    }
+	/* Incase it is a fresh one*/
+	if ((*stack) == NULL)
+	{
+		(*stack) = new;
+	}
+	else
+	{
+		new->next = (*stack);
+		(*stack)->prev = new;
+		(*stack) = new;
+	}
 }
 
 /**
@@ -41,12 +41,12 @@ void push(stack_t **stack, unsigned int line_number)
  */
 void pall(stack_t *stack)
 {
-    /* Print all stack elements */
-    while (stack != NULL)
-    {
-        fprintf(stdout, "%d\n", stack->n);
-        stack = stack->next;
-    }
+	/* Print all stack elements */
+	while (stack != NULL)
+	{
+		fprintf(stdout, "%d\n", stack->n);
+		stack = stack->next;
+	}
 }
 
 /**
@@ -55,13 +55,13 @@ void pall(stack_t *stack)
  */
 void free_stack(stack_t *stack)
 {
-    stack_t *current = stack;
-    stack_t *next_node;
+	stack_t *current = stack;
+	stack_t *next_node;
 
-    while (current != NULL)
-    {
-        next_node = current->next;
-        free(current);   
-        current = next_node;
-    }
+	while (current != NULL)
+	{
+		next_node = current->next;
+		free(current);
+		current = next_node;
+	}
 }
