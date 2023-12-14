@@ -13,6 +13,8 @@ int main(int argc, char *argv[])
 {
     FILE *file; 
     char buffer[BUFSIZE];
+    stack_t *stack;
+    unsigned int line_number = 0;
     
     if (argc != 2)
     {
@@ -28,9 +30,10 @@ int main(int argc, char *argv[])
     }
     
     while (fgets(buffer, BUFSIZE, file))
-    {
+    {   
+        line_number++;
         buffer[strcspn(buffer, "\n")] = 0;
-        command(buffer);
+        command(buffer, &stack, line_number);
     }
 
     fclose(file);

@@ -39,10 +39,11 @@ typedef struct instruction_s
         char *opcode;
         void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
-/* command.c */
-void command(char *buffer);
 
-/* push.c */
-void push(void);
+/* command.c */
+void command(char *buffer, stack_t **stack, unsigned int line_number);
+
+/* stack_functions.c */
+void push(stack_t **stack, unsigned int line_number);
 
 #endif /* waheed.h end */
