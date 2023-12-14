@@ -43,7 +43,7 @@ int command(char *buffer, stack_t **stack, unsigned int line_number)
             }
         }
         /* incase command was not found raise error */
-        fprintf(stderr, "L%d: unknown instruction %s", line_number, action);
+        fprintf(stderr, "L%d: unknown instruction %s\n", line_number, action);
         exit(EXIT_FAILURE);
     }
     return (0);
