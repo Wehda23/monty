@@ -4,6 +4,7 @@ static instruction_t actions[] = {
 		{"push", push},
 		{"pint", pint},
 		{"pop", pop},
+		{"swap", swap},
 		{NULL, NULL},
 };
 

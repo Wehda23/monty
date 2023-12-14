@@ -50,4 +50,8 @@ void pall(stack_t *stack);
 void pint(stack_t **stack, unsigned int line_number);
 void pop(stack_t **stack, unsigned int line_number);
 
+/* stack_functions2.c */
+void swap(stack_t **stack, unsigned int line_number);
+
+
 #endif /* waheed.h end */
