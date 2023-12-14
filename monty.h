@@ -60,5 +60,7 @@ void div_stack(stack_t **stack, unsigned int line_number);
 /* stack_functions3.c */
 void mul_stack(stack_t **stack, unsigned int line_number);
 void mod_stack(stack_t **stack, unsigned int line_number);
+void pchar(stack_t **stack, unsigned int line_number);
+void pstr(stack_t **stack, unsigned int line_number);
 
 #endif /* waheed.h end */

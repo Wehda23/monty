@@ -49,3 +49,55 @@ void mod_stack(stack_t **stack, unsigned int line_number)
     free(current);
 }
 
+/**
+ * pchar - prints the char at the top of the stack, followed by a new line.
+ * @stack: Pointer to a stack.
+ * @line_number: line number.
+ */
+void pchar(stack_t **stack, unsigned int line_number)
+{
+    int value;
+
+    if (*stack == NULL)
+    {
+        fprintf(stderr, "L%d: can't pchar, stack empty\n", line_number);
+        exit(EXIT_FAILURE);
+    }
+
+    value = (*stack)->n;
+
+    if (value < 0 || value > 127)
+    {
+        fprintf(stderr, "L%d: can't pchar, value out of range\n", line_number);
+        exit(EXIT_FAILURE);
+    }
+
+    fprintf(stdout, "%c\n", (char) value);
+}
+
+/**
+ * pstr - prints the string starting at the top of the stack, followed by a new line.
+ * @stack: Pointer to a stack.
+ * @line_number: line number.
+ */
+void pstr(stack_t **stack, unsigned int line_number)
+{
+    stack_t *printer = *stack;
+    int value;
+
+    if (*stack != NULL)
+    {
+        while (printer != NULL)
+        {
+            value = printer->n;
+            if (value < 1 || value > 127)
+            {
+                break;
+            }
+            fprintf(stdout, "%c", (char) value);
+            printer = printer->next;
+            line_number++;
+        }
+    }
+    fprintf(stdout, "\n");
+}
