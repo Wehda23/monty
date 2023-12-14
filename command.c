@@ -23,6 +23,4 @@ void command(char *buffer, stack_t **stack, unsigned int line_number)
             
         printf("%s\n", action);
     }
-
-    free(action);
 }
