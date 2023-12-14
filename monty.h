@@ -41,10 +41,11 @@ typedef struct instruction_s
 } instruction_t;
 
 /* command.c */
-void command(char *buffer, stack_t **stack, unsigned int line_number);
+int command(char *buffer, stack_t **stack, unsigned int line_number);
 
 /* stack_functions.c */
 void push(stack_t **stack, unsigned int line_number);
 void free_stack(stack_t *stack);
+void pall(stack_t *stack);
 
 #endif /* waheed.h end */

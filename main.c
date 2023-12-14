@@ -37,7 +37,6 @@ int main(int argc, char *argv[])
         buffer[strcspn(buffer, "\n")] = 0;
         command(buffer, &stack, line_number);
     }
-
     free_stack(stack);
     fclose(file);
     return (0);

@@ -35,6 +35,19 @@ void push(stack_t **stack, unsigned int line_number)
     }
 }
 
+/**
+ * pall - function that prints all stack
+ * @head: Doubly Linked list.
+ */
+void pall(stack_t *stack)
+{
+    /* Print all stack elements */
+    while (stack != NULL)
+    {
+        printf("%d\n", stack->n);
+        stack = stack->next;
+    }
+}
 
 /**
  * free_stack - function that frees memory allocation of a stack.
